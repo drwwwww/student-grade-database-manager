@@ -74,7 +74,11 @@ def main():
             pass
 
         if "all" in ch2 and "search" in ch2:
-            print(Fore.RED + Style.BRIGHT + "Program couldn't undertsand please try again" + Style.RESET_ALL)
+            print(Fore.RED + Style.BRIGHT + "Program couldn't understand please try again" + Style.RESET_ALL)
+            main()
+        
+        else:
+            print(Fore.RED + Style.BRIGHT + "Program couldn't understand please try again" + Style.RESET_ALL)
             main()
 
     else:
