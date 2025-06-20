@@ -6,6 +6,21 @@ import sys
 
 init()
 
+
+def search():
+    print()
+    searchName = input(Fore.GREEN + Style.BRIGHT + "Which student would you like to search for?: " + Style.RESET_ALL)
+    cur.execute("SELECT * FROM students WHERE name=?", (searchName,))
+    data = cur.fetchone()
+    headers = ["Id", "Name", "Subject", "Grade"]
+    print()
+    if data:
+        print(tabulate.tabulate([data], headers=headers))
+    else:
+        print(Fore.RED + "No student found with the name: " + searchName + Style.RESET_ALL)
+    print()
+    main()
+
 def addStudent():
     student = input(Fore.GREEN + Style.BRIGHT + "Student Name: ")
     subject = input(Fore.GREEN + Style.BRIGHT + "Class Subject: ")
@@ -71,18 +86,19 @@ def main():
             viewAll()
         
         if "search" in ch2:
-            pass
-
-        if "all" in ch2 and "search" in ch2:
-            print(Fore.RED + Style.BRIGHT + "Program couldn't understand please try again" + Style.RESET_ALL)
-            main()
+            search()
         
         else:
+            print()
             print(Fore.RED + Style.BRIGHT + "Program couldn't understand please try again" + Style.RESET_ALL)
+            print()
             main()
 
     else:
-        pass
+        print()
+        print(Fore.RED + Style.BRIGHT + "Program couldn't understand please try again" + Style.RESET_ALL)
+        print()
+        main()
 
 
 main()
