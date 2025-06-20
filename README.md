@@ -1,4 +1,4 @@
-# 🏫 Student Grades Tracker (SQLite CLI)
+# 🏫 Student Grades Database Manager (SQLite CLI)
 
 A Python terminal app to manage student grades in a local SQLite database — allowing you to add, search, and view student records for a specific class.
 
